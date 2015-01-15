@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=poidsMax
+comment0.target=TapisRoulant(int)
+comment0.text=\n\ constructeurs\ d'objets\ de\ la\ classe\ TapisRoulant\n
+comment1.params=
+comment1.target=int\ donnePoidsMax()
+comment1.text=\ donne\ le\ poids\ maximal\ accepte\n\ @return\ le\ pods\ maximal\ accepte\n
+comment2.params=caisse
+comment2.target=void\ recoit(Caisse)
+comment2.text=\ la\ tapis\ recoit\ une\ caisse\ \n\ @param\ caisse\ la\ caisse\ recue\n
+comment3.params=
+comment3.target=boolean\ estPlein()
+comment3.text=\ indique\ si\ le\ tapis\ est\ plein\n\ @return\ <t>true</t>\ si\ le\ tapis\ est\ plein\ de\ caisses\n
+comment4.params=caisse
+comment4.target=boolean\ accepte(Caisse)
+comment4.text=\ verifie\ si\ le\ tapis\ peut\ accepter\ la\ caisse,\ ie.\ si\ elle\ n'est\ pas\ trop\ lourde\n\ @param\ caisse\ \:\ la\ caisse\ a\ verifier\n\ @return\ <t>true</t>\ si\ la\ caisse\ peut\ etre\ portee,\ <t>false</t>\ sinon\n
+comment5.params=
+comment5.target=void\ affiche()
+comment5.text=\ affiche\ le\ contenu\ du\ tapis\ roulant\n
+comment6.params=
+comment6.target=void\ videTapis()
+comment6.text=\ vide\ le\ tapis\ roulant\ (supprime\ toutes\ les\ caisses)\n
+numComments=7

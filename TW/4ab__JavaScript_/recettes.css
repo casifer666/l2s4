@@ -1,0 +1,42 @@
+body {
+  counter-reset: title2 title3
+}
+
+ol {
+  border: black solid 2px;
+  fieldset:
+}
+
+h1 {
+  counter-reset: title2
+  color: white;
+  background-color: grey;
+  text-align: center;
+}
+
+h2 {
+  counter-increment: title2;
+  counter-reset: title3;
+}
+
+h2:before {
+  content: counter(title2, upper-alpha) " ";
+  text-align: center;
+  border: dashed black 5px;
+}
+
+h3 {
+    counter-increment : title3;
+}
+
+h3:before {
+  content: counter(title2, upper-alpha) "." counter(title3);
+  text-align: center
+}
+
+li {
+  list-style-type: lower-alpha
+}
+
+ol.ingredients {
+  title: x

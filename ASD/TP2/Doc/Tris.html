@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Tris" rel="Chapter" href="Tris.html"><title>Tris</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;</div>
+<center><h1>Module <a href="type_Tris.html">Tris</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Tris: <code class="code">sig</code> <a href="Tris.html">..</a> <code class="code">end</code></pre><code class="code">tri_fusion t cmp</code> trie le tableau <code class="code">t</code> selon la fonction de comparaison <code class="code">cmp</code><br>
+<hr width="100%">
+<br><code><span id="TYPEtranche"><span class="keyword">type</span> <code class="type"></code>tranche</span> = {</code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>t&nbsp;: <code class="type">int array</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>g&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>d&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+}
+
+
+<pre><span id="VALfusionner"><span class="keyword">val</span> <a href="code_VALTris.fusionner.html">fusionner</a></span> : <code class="type">'a array -> 'a array -> ('a -> 'a -> int) -> 'a array</code></pre><div class="info">
+<code class="code">tri_fusion t cmp</code> trie le tableau <code class="code">t</code> selon la fonction de comparaison <code class="code">cmp</code><br>
+</div>
+<pre><span id="VALtri_fusion"><span class="keyword">val</span> <a href="code_VALTris.tri_fusion.html">tri_fusion</a></span> : <code class="type">'a array -> ('a -> 'a -> int) -> 'a array</code></pre><pre><span id="VALcpt"><span class="keyword">val</span> <a href="code_VALTris.cpt.html">cpt</a></span> : <code class="type">int Pervasives.ref</code></pre><div class="info">
+le compteur du nombre de comparaisons<br>
+</div>
+<pre><span id="VALcmp"><span class="keyword">val</span> <a href="code_VALTris.cmp.html">cmp</a></span> : <code class="type">'a -> 'a -> int</code></pre><div class="info">
+<code class="code">cmp a b</code> renvoie 1 si a &gt; b, 0 si a = b et -1 si a &lt; b<br>
+</div>
+<pre><span id="VALpartitionner"><span class="keyword">val</span> <a href="code_VALTris.partitionner.html">partitionner</a></span> : <code class="type"><a href="Tris.html#TYPEtranche">tranche</a> -> (int -> int -> int) -> int -> <a href="Tris.html#TYPEtranche">tranche</a> * <a href="Tris.html#TYPEtranche">tranche</a></code></pre><div class="info">
+<code class="code">partitionner tr cmp ind_pivot</code> partitionne la tranche <code class="code">tr</code> en deux tranches
+    et retourne un couple de tranches selon la fonction de comparaison <code class="code">cmp</code> et avec
+    le pivot en position <code class="code">ind_pivot</code><br>
+</div>
+<pre><span id="VALtri_rapide_tranche_premiere_position"><span class="keyword">val</span> <a href="code_VALTris.tri_rapide_tranche_premiere_position.html">tri_rapide_tranche_premiere_position</a></span> : <code class="type"><a href="Tris.html#TYPEtranche">tranche</a> -> (int -> int -> int) -> unit</code></pre><div class="info">
+<code class="code">tri_rapide_tranche_premiere_position tr cmp</code> trie la tranche <code class="code">tr</code> selon la
+   fonction de comparaison <code class="code">cmp</code> en utilisant l'algorithme
+   de tri rapide avec le pivot en première position<br>
+</div>
+<pre><span id="VALtri_rapide_premiere_position"><span class="keyword">val</span> <a href="code_VALTris.tri_rapide_premiere_position.html">tri_rapide_premiere_position</a></span> : <code class="type">int array -> (int -> int -> int) -> int array</code></pre><div class="info">
+<code class="code">tri_rapide_premiere_position tab cmp</code> trie le tableau <code class="code">tab</code> selon la fonction de
+   comparaison <code class="code">cmp</code> en utilisant l'algorithme de tri rapide avec
+   le pivot en première position<br>
+</div>
+<pre><span id="VALpivot_aleatoire"><span class="keyword">val</span> <a href="code_VALTris.pivot_aleatoire.html">pivot_aleatoire</a></span> : <code class="type"><a href="Tris.html#TYPEtranche">tranche</a> -> int</code></pre><div class="info">
+<code class="code">pivot_aleatoire tab</code> retourne une valeur aléatoire de la tranche tab<br>
+</div>
+<pre><span id="VALtri_rapide_tranche_aleatoire"><span class="keyword">val</span> <a href="code_VALTris.tri_rapide_tranche_aleatoire.html">tri_rapide_tranche_aleatoire</a></span> : <code class="type"><a href="Tris.html#TYPEtranche">tranche</a> -> (int -> int -> int) -> unit</code></pre><div class="info">
+<code class="code">tri_rapide_tranche_aleatoire tr cmp</code> trie la tranche <code class="code">tr</code> selon la
+   fonction de comparaison <code class="code">cmp</code> en utilisant l'algorithme
+   de tri rapide avec un pivot aléatoire<br>
+</div>
+<pre><span id="VALtri_rapide_aleatoire"><span class="keyword">val</span> <a href="code_VALTris.tri_rapide_aleatoire.html">tri_rapide_aleatoire</a></span> : <code class="type">int array -> (int -> int -> int) -> int array</code></pre><div class="info">
+<code class="code">tri_rapide_aleatoire tab cmp</code> trie le tableau <code class="code">tab</code> selon la fonction de
+   comparaison <code class="code">cmp</code> en utilisant l'algorithme de tri rapide avec
+   un pivot aléatoire<br>
+</div>
+<pre><span id="VALpivot_optimal"><span class="keyword">val</span> <a href="code_VALTris.pivot_optimal.html">pivot_optimal</a></span> : <code class="type"><a href="Tris.html#TYPEtranche">tranche</a> -> int</code></pre><div class="info">
+<code class="code">pivot_optimal tr</code> calcule le pivot optimal à choisir pour la tranche tr<br>
+</div>
+<pre><span id="VALtri_rapide_tranche_optimal"><span class="keyword">val</span> <a href="code_VALTris.tri_rapide_tranche_optimal.html">tri_rapide_tranche_optimal</a></span> : <code class="type"><a href="Tris.html#TYPEtranche">tranche</a> -> (int -> int -> int) -> unit</code></pre><div class="info">
+<code class="code">tri_rapide_tranche_optimal tr cmp</code> trie la tranche <code class="code">tr</code> selon la
+   fonction de comparaison <code class="code">cmp</code> en utilisant l'algorithme
+   de tri rapide avec le pivot optimal<br>
+</div>
+<pre><span id="VALtri_rapide_optimal"><span class="keyword">val</span> <a href="code_VALTris.tri_rapide_optimal.html">tri_rapide_optimal</a></span> : <code class="type">int array -> (int -> int -> int) -> int array</code></pre><div class="info">
+<code class="code">tri_rapide_optimal tab cmp</code> trie le tableau <code class="code">tab</code> selon la fonction de
+   comparaison <code class="code">cmp</code> en utilisant l'algorithme de tri rapide avec
+   le pivot optimal<br>
+</div>
+<pre><span id="VALpivot_optimal_bis"><span class="keyword">val</span> <a href="code_VALTris.pivot_optimal_bis.html">pivot_optimal_bis</a></span> : <code class="type"><a href="Tris.html#TYPEtranche">tranche</a> -> (int -> int -> int) -> int</code></pre><div class="info">
+<code class="code">pivot_optimal_bis tr</code> calcule le pivot optimal de la tranche tr en comptant
+   le nombre de comparaisons<br>
+</div>
+<pre><span id="VALtri_rapide_tranche_optimal_bis"><span class="keyword">val</span> <a href="code_VALTris.tri_rapide_tranche_optimal_bis.html">tri_rapide_tranche_optimal_bis</a></span> : <code class="type"><a href="Tris.html#TYPEtranche">tranche</a> -> (int -> int -> int) -> unit</code></pre><div class="info">
+<code class="code">tri_rapide_tranche_optimal_bis tr cmp</code> trie la tranche <code class="code">tr</code> selon la fonction
+   de comparaison <code class="code">cmp</code> en utilisant l'algorithme de tri rapide et en comptant
+   le nombre de comparaisons effectuées pour faire la recherche du pivot optimal<br>
+</div>
+<pre><span id="VALtri_rapide_optimal_bis"><span class="keyword">val</span> <a href="code_VALTris.tri_rapide_optimal_bis.html">tri_rapide_optimal_bis</a></span> : <code class="type">int array -> (int -> int -> int) -> int array</code></pre><div class="info">
+<code class="code">tri_rapide_optimal_bis tab cmp</code> trie le tableau <code class="code">tab</code> selon la fonction
+   de comparaison <code class="code">cmp</code> en utilisant l'algorithme de tri rapide et en comptant
+   le nombre de comparaisons effectuées pour faire la recherche du pivot optimal<br>
+</div>
+</body></html>

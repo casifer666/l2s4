@@ -1,0 +1,329 @@
+/* HOSSAINY Said et DIAGNE Salla */
+
+html {
+	background-image:linear-gradient(Gainsboro, white);
+	text-align : center;
+}
+
+body {
+	margin : 2%;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	border:solid;
+	border-color: grey;
+}
+
+/* FAVORIS */
+
+/* style de la barre des favoris */
+#favoris {
+	box-shadow: 5px 5px 15px #000;
+	border-radius: 0px 0px 10px 10px;
+	border: none;
+	background-color: #82EBA9;
+	color: #2A9953;
+	position:fixed;
+ 	top:0;
+ 	right:0;
+	margin-right : 2%;
+	display: block;
+	z-index: 10000;
+	text-align: center;
+	width : 20%;
+}
+
+#titrefav {
+	border-bottom: solid 1px #2A9953;
+}
+
+#clean {
+	border-top : solid 1px #2A9953;
+}
+
+.click:hover {
+	background-color: #2A9953;
+	color: #82EBA9;
+	cursor : pointer;
+}
+
+/* menu déroulant de la barre des favoris */
+.openbig {
+	max-height: 15pt; 
+	width: 10%;
+	overflow: hidden; 
+	-webkit-transition:max-height 1s ease, position 1s ease;
+	-moz-transition:max-height 1s ease, position 1s ease;
+	-o-transition:max-height 1s ease, position 1s ease;
+	-htm-transition:max-height 1s ease, position 1s ease;
+	transition:max-height 1s ease, position 1s ease;
+}
+ 
+.openbig:hover {
+	max-height: 1000px;
+	position : absolute;
+}
+
+/* MAIN */
+
+/* style de la grande table qui englobe toute la page d'accueil */
+#main {
+	box-shadow: 1px 1px 12px #555;
+	width : 100%;
+}
+
+/* LOGO */
+
+/* style du logo */
+h1 img {
+	width: 35%;
+	background-color: transparent;
+	margin : auto;
+	cursor : pointer;
+}
+
+#logo {
+	border-width: 1px;
+	border-right: none;
+	vertical-align: middle;
+	background-color: #82C9E4;
+}
+
+/* RECHERCHE RAPIDE */
+
+/* style de la zone occupée par le formulaire de recherche rapide */
+#rr {
+	border-width: 1px;
+	border-left: none;
+	background-color: #82C9E4;
+	background-position: 50% 100%;
+	background-image: url('images/ville.png');
+	background-repeat:no-repeat;
+	width : 50%;
+}
+
+/* style du bouton de validation de la recherche rapide */
+#recherche_rapide button {
+	background-color: transparent;
+	background-image: url('images/loupe.png');
+	background-size: 100% auto;
+	width: 21px;
+	height: 21px;
+	vertical-align: middle;
+	border:none;
+}
+
+#recherche_rapide button:active {
+    border: 2px solid blue;
+    outline: medium none;
+}
+
+#recherche_rapide button:hover {
+	cursor : pointer;
+}
+
+/* ONGLETS */
+
+#page_onglet button {
+	display: inline-block;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	/*color: #2E3E97;*/
+	color : black;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	border: 1px solid #cccccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-bottom-color: #b3b3b3;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#page_onglet button:focus {
+	outline: thin dotted #333;
+	outline-offset: -2px;
+}
+
+#page_onglet button:active {
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#page_onglet button:hover,#page_onglet button:focus {
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+}
+
+#onglets {
+	margin-top: -20px;
+	width : 100.5%;
+}
+
+#page_onglet {
+	border-width: 1px;
+	border-left: none;
+	border-right: none;
+	height : 680px;
+	overflow-y : auto;
+	width : 100.5%;
+}
+
+#onglet_rech {
+	box-shadow: 1px -1px 15px #000;
+	border-radius: 10px 10px 0px 0px ;
+	border: none;
+	background-color: #82EBA9;
+	border-width: 1px;
+	color: #2A9953;
+	float : left;
+	width : 50%;
+}
+
+
+#onglet_rech:hover,#onglet_res:hover {
+	background-color: #2A9953;
+	color: #82EBA9;
+	cursor : pointer;
+}
+
+#onglet_res {
+	box-shadow: 1px -1px 15px #000;
+	border-radius: 10px 10px 0px 0px ;
+	border: none;
+	border-width: 1px;
+	background-color: #82EBA9;
+	color: #2A9953;
+	margin-left : 50%;
+	width : 50%;
+}
+
+/* RECHERCHE AVANCEE */
+
+/* style de la zone occupée par le formulaire de recherche avancée */
+#ra {
+	border-width: 1px;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-image: url('images/panneaux.png'),linear-gradient(Gainsboro, rgb(130,201,228));
+	vertical-align: top;
+	width : 18%;
+}
+
+label {
+	color : black;
+	font-size : 12pt;
+}
+
+/* style de la zone occupée par la recherche */
+#recherche {
+	margin-top: -4px;
+	margin-right: -1px;
+	margin-left: -1px;
+	background-image:linear-gradient(Gainsboro, rgb(130,201,228));
+	font-size: 20px;
+	color: #2E3E97;
+	border-width: 1px;
+}
+
+/* style de la zone occupée par les résultats */
+#resultats {
+	background-image:linear-gradient(Gainsboro, rgb(130,201,228));
+	font-size: 20px;
+	color: #2E3E97;
+	border-width: 1px;
+	height: 0px;
+	overflow-y: scroll;
+	display: block;
+	padding : 0 ;
+	margin : 0;
+}
+
+/* style de chaque commune résultat */
+.resultat:hover {
+	background-color: #82EBA9;
+}
+
+#resultats div {
+	text-decoration : none;
+	color : black;
+}
+
+/* CARTE */
+
+#carte {
+	border-width: 1px;
+}
+
+#macarte {
+	height : 707px;
+ 	width : 100%;
+	min-width : 0px;
+	float : right;
+}
+
+/* PAGINATION */
+
+/* style de la pagination */
+#pagination {
+    border-top: 1px solid gray;
+    border-width: 1px 14px 1px 1px;
+    border-right: 14px solid Gainsboro;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    width: 97%;
+    background-color: rgb(130, 235, 169);
+    color: rgb(42, 153, 83);
+    font-size: 12px;
+}
+
+#pagination a,#pagination span {
+	padding:0.2em 0.5em;
+}
+
+#pagination a {
+	border:1px solid #9AAFE5;
+	color:#2A9953;
+	text-decoration:none;
+}
+
+#pagination a:hover {
+	border:1px solid #2A9953;
+	color:#2A9953;
+}
+
+#pagination .extreme {
+	font-weight:bold;
+}
+
+#pagination span.off { 
+	border:1px solid #9AAFE5;
+	color:#999999;
+}
+
+#pagination span.courant {
+	border:1px solid #2A9953;
+	background-color:#2A9953;
+	color:white;
+	font-weight:bold;
+}

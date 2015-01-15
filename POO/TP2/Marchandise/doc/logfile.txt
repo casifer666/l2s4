@@ -1,0 +1,44 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files\Java\jdk1.6.0_38\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.6
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Users\Salla\Documents\POO\Marchandise
+-d
+C:\Users\Salla\Documents\POO\Marchandise\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+C:\Users\Salla\Documents\POO\Marchandise\Marchandise.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\Salla\Documents\POO\Marchandise\Marchandise.java...
+Constructing Javadoc information...
+Standard Doclet version 1.6.0_38
+Building tree for all the packages and classes...
+Generating C:\Users\Salla\Documents\POO\Marchandise\doc\Marchandise.html...
+C:\Users\Salla\Documents\POO\Marchandise\Marchandise.java:58: warning - @param argument "le" is not a parameter name.
+C:\Users\Salla\Documents\POO\Marchandise\Marchandise.java:42: warning - @param argument "la" is not a parameter name.
+Generating C:\Users\Salla\Documents\POO\Marchandise\doc\package-frame.html...
+Generating C:\Users\Salla\Documents\POO\Marchandise\doc\package-summary.html...
+Generating C:\Users\Salla\Documents\POO\Marchandise\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating C:\Users\Salla\Documents\POO\Marchandise\doc\allclasses-frame.html...
+Generating C:\Users\Salla\Documents\POO\Marchandise\doc\allclasses-noframe.html...
+Generating C:\Users\Salla\Documents\POO\Marchandise\doc\index.html...
+Generating C:\Users\Salla\Documents\POO\Marchandise\doc\stylesheet.css...
+2 warnings

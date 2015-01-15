@@ -1,0 +1,27 @@
+#BlueJ package file
+dependency1.from=Bibliotheque
+dependency1.to=Livre
+dependency1.type=UsesDependency
+package.editor.height=403
+package.editor.width=605
+package.editor.x=867
+package.editor.y=300
+package.numDependencies=1
+package.numTargets=2
+package.showExtends=true
+package.showUses=true
+project.charset=UTF-8
+target1.height=50
+target1.name=Bibliotheque
+target1.showInterface=false
+target1.type=ClassTarget
+target1.width=90
+target1.x=320
+target1.y=110
+target2.height=50
+target2.name=Livre
+target2.showInterface=false
+target2.type=ClassTarget
+target2.width=80
+target2.x=110
+target2.y=50

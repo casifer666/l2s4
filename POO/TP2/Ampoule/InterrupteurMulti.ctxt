@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=nbreMAXampoules
+comment0.target=InterrupteurMulti(int)
+comment0.text=\r\n\ constructeur\ pour\ les\ objets\ de\ la\ classe\ InterrupteurMulti\r\n
+comment1.params=i\ ampoule
+comment1.target=void\ ajouteAmpoule(int,\ Ampoule)
+comment1.text=\r\n\ ajoute\ une\ ampoule\r\n\ @param\ i\ \=\ l'indice\ a\ laquelle\ doit\ etre\ ajoutee\ l'ampoule\r\n\ @param\ ampoule\ \=\ l'ampoule\ a\ ajouter\r\n
+comment2.params=
+comment2.target=void\ appuiInterrupteurMulti()
+comment2.text=\r\n\ appuie\ sur\ l'interrupteur\r\n
+comment3.params=
+comment3.target=void\ afficheEtatAmpoules()
+comment3.text=\r\n\ affiche\ l'etat\ de\ l'ampoule\r\n\ @return\ l'etat\ de\ l'ampoule\r\n
+numComments=4

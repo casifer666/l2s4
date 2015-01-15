@@ -1,0 +1,44 @@
+body{
+   font-family : helvetica ;
+   background-color : #FFFFCC ;
+}
+
+ul#menu li a:link, ul#menu li a:visited{
+  text-decoration : none;
+  color : navy ;
+}
+
+ul#menu li{
+  border : solid 2px navy ;
+  width : 23mm ;
+  height : 20mm;
+  padding : 2px;
+  float : left ;
+  margin : 4px;
+  text-align : center ;
+  background-color : aquamarine;
+}
+
+ul#menu li:hover{
+  background-color : lightseagreen;
+  color : aquamarine;
+}
+
+ul#menu {
+  list-style-type : none ;
+}
+
+.delimiteur{
+  clear : both;
+  visibility : hidden;
+}
+
+body>section {
+  background-color : lightgray;
+  padding : 5mm;
+  margin-bottom : 5mm ;
+}
+
+nav+* {
+clear: left;
+}

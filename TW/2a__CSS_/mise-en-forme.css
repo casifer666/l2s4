@@ -1,0 +1,9 @@
+body h1 {
+color : green;
+text-transform : uppercase;
+border-bottom : solid;
+}
+
+body.em {
+text-decoration : underline;
+}

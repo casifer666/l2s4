@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+ <meta charset="UTF-8" />
+ <title>Base de données du projet TW 2013</title>
+   <link rel="stylesheet" type="text/css" href="tutoOpenLayers.css" />
+<style>
+table {
+ border-collapse: collapse;
+ margin-bottom : 3mm; 
+}
+table td {
+ border : solid 1pt;
+ padding : 2pt;
+}
+
+table.schemaSQL td:nth-child(-n+2) {
+ font-family : monospace;
+}
+table.schemaSQL td:nth-child(1), code.nomSQL {
+  font-weight : bold;
+}
+</style>
+</head>
+<body>
+<h1>Données du projet 2013</h1>
+<section>
+La base fournie comporte 3 tables :
+<table class="schemaSQL">
+<caption>Table <code class="nomSQL">communes</code></caption>
+<tr><td>region</td><td>char(2)</td><td>Code région</td></tr>
+<tr><td>dept</td><td>varchar(3)</td><td>Code département</td></tr>
+<tr><td>comm</td><td>varchar(3)</td><td>Code commune (au sein du département)</td></tr>
+<tr><td>nom</td><td>varchar(50)</td><td>Nom accentué et en UTF-8</td></tr>
+<tr><td>nom_ascii_maj</td><td>varchar(50)</td><td>Nom sans accents et en majuscules</td></tr>
+<tr><td>tncc</td><td>smallint</td><td>code  TNCC</td></tr>
+<tr><td>compl</td><td>varchar(40)</td><td>Indication complémentaire au nom</td></tr>
+<tr><td>population</td><td>integer</td><td>Population</td></tr>
+<tr><td>latitude</td><td>double</td><td>Latitude</td></tr>
+<tr><td>longitude</td><td>double</td><td>Longitude</td></tr>
+
+</table>
+<table class="schemaSQL">
+<caption>Table <code class="nomSQL">departements</code></caption>
+<tr><td>region</td><td>char(2)</td><td>Code région</td></tr>
+<tr><td>code</td><td>varchar(3)</td><td>Code département</td></tr>
+<tr><td>nom</td><td>varchar(40)</td><td>Nom accentué et en UTF-8</td></tr>
+<tr><td>cl_dept</td><td>varchar(3)</td><td>Code département du chef lieu</td></tr>
+<tr><td>cl_comm</td><td>varchar(3)</td><td>Code commune du chef-lieu</td></tr>
+</table>
+<table class="schemaSQL">
+<caption>Table <code class="nomSQL">regions</code></caption>
+<tr><td>code</td><td>char(2)</td><td>Code région</td></tr>
+<tr><td>nom</td><td>varchar(40)</td><td>Nom accentué et en UTF-8</td></tr>
+<tr><td>cl_dept</td><td>varchar(3)</td><td>Code département du chef lieu</td></tr>
+<tr><td>cl_comm</td><td>varchar(3)</td><td>Code commune du chef-lieu</td></tr>
+</table>
+
+
+</section>
+
+<section>
+<h1>Accès à la base sur webtp</h1>
+Sur le serveur webtp, la base est déjà créée : une base unique nommée <code>projetTW</code>
+accessible en lecture par tous.
+
+<strong>Il vous faut impérativement utiliser cette base commune : vous ne DEVEZ PAS charger ces tables dans
+votre base personnelle sur webtp.</strong>
+
+Pour vous connecter à la base, les paramètres sont donc
+<pre>
+$connectionProjet = new PDO("pgsql:hostname=localhost,dbname=projetTW",
+                            "votreLogin","votrePassword");
+</pre>
+
+</section>
+<section>
+<h1>Utilisation sur un ordinateur personnel</h1>
+Pour la phase de développement sur un ordinateur personnel, la base est fournie
+sous forme d'un <a href="base2013.zip">fichier postgreSQL zippé</a>.
+
+Il existe deux méthodes pour charger ces tables dans une base PostgreSQL.
+<ul>
+<li>La plus simple consiste à utiliser la commande en ligne <code>psql</code> 
+<pre>
+psql nomDeLaBase nomUtilisateur -f base_projetTW_2013.sql 
+</pre>
+Parfois, selon la config, vous devrez préciser le nom de l'hôte :
+<pre>
+psql -h localhost nomDeLaBase nomUtilisateur -f base_projetTW_2013.sql 
+</pre>
+</li>
+<li>Dans l'interface web phpPgAdmin :
+<ol>
+<li>Dans le menu à gauche, cliquer sur le mot «Schémas»</li>
+<li>Cliquer sur l'icône SQL</li>
+<li>Choisissez « importer un script SQL » et renseignez le nom du fichier à charger</li>
+</ol>
+<img src="loadSQL2.png" alt="capture écran"/>
+</li>
+<li>Attention : ne pas travailler par copier/coller dans l'interface phpPgAdmin pour éviter les problèmes liés au codage
+des cacarctères.
+</lu>
+
+</section>
+<section>
+<h1>Explications concernant les attributs de la base</h1>
+
+<h2>Codes de département et  code communes</h2>
+À chaque commune sont associés un code de département et une code commune. :
+ <ul>
+<li>Le code de département comporte 2 caractères pour la métropole et de 3 pour les DOM.
+</li>
+<li>Le code commune (au sein du département) comporte 3 caractères pour la métropole et de 2 pour les DOM.
+</li>
+<li>Ce qu'on appelle le "code INSEE de la commune" est la concaténation des précédents,
+ et comporte donc toujours 5 caractères.</li>
+ </ul>
+
+<h2>Les dénominations des communes</h2>
+<p>Les dénominations sont définies par plusieurs attributs : le nom lui-même (sans article),
+le code TNCC (qui détermine l'article, voir ci-dessous) et, accessoirement, un complément.
+Les noms sont donnés sous deux formes : </p>
+<ul>
+<li>Avec initiales majuscules et lettres accentuées, en UTF-8 : c'est la forme qu'il faut utiliser pour 
+écrire les noms de commune. Cette forme contient aussi les caractères ligaturés œ et Œ (par exemple « Œuf-en-Ternois »)
+</li>
+<li>En ASCII 7 bits (c'est à dire sans lettres accentuées) et en majuscules. 
+Cette forme n'est présente que pour faciliter la recherche de noms.
+<p>Si l'on a besoin d'écrire le nom entièrement en majuscules, il ne faut pas utiliser la forme ASCII 7 bits,
+mais traduire le nom UTF-8 en conservant les accents. Par exemple écrire 
+BÂGÉ-LE-CHÂTEL ou  TRIE-SUR-BAÏSE</p></li>
+</ul>
+</section>
+
+<section>
+<h1>Typographie des noms de communes</h1>
+<p>La dénomination officielle des communes françaises respecte certaines règles (qui ne sont pas toujours suivies
+rigoureusement en usage courant) qu'il est utile de comprendre pour pouvoir bien utiliser les données fournies.
+</p>
+<p>
+Pour la dénomination d'une commune il convient de bien distinguer le <strong>nom</strong> et l'<strong>article</strong>
+(l'article ne concerne que certaines communes).
+</p>
+<ul>
+<li>Le <strong>nom</strong> s'écrit sans aucun espace. S'il est composé de plusieurs mots, ceux-ci
+sont toujours séparés par des tirets (ou dans certains cas une apostrophe).</p>
+</li>
+<li>
+L'<strong>article</strong> précède le nom dont il est séparé par un espace (sauf dans le cas de " L' ").
+Il fait partie de la dénomination et doit toujours apparaître quand on mentionne une commune qui en comporte un.
+ Par exemple, on dit « La Madeleine » et non « Madeleine ».
+</li>
+</ul>
+<p>
+Voici quelques exemples de dénominations complètes :
+Villeneneuve-d'Ascq, Saint-Michel-Chef-Chef, La Vallée-Mulâtre, Les Hautes-Rivières, Les Rues-des-Vignes, 
+L'Argentière-la-Bessée, Aux Marais
+</p>
+
+<p>Les types de noms de communes sont codifiés par le code TNCC (entre 0 et 8)
+</p>
+<table>
+<caption>Codes TNCC</caption>
+<thead>
+<tr><td>tncc</td><td>article</td><td>charnière</td></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>-</td><td>De</td></tr>
+<tr><td>1</td><td>-</td><td>D'</td></tr>
+<tr><td>2</td><td>Le</td><td>Du</td></tr>
+<tr><td>3</td><td>La</td><td>De La</td></tr>
+<tr><td>4</td><td>Les</td><td>Des</td></tr>
+<tr><td>5</td><td>L'</td><td>De L'</td></tr>
+<tr><td>6</td><td>Aux</td><td>Des</td></tr>
+<tr><td>7</td><td>Las</td><td>De Las</td></tr>
+<tr><td>8</td><td>Los</td><td>De Los</td></tr>
+</tbody>
+</table>
+
+<p>Dans certaines expressions (par exemple «La commune de ...») la dénomination
+  est précédée d'une 
+<strong>charnière</strong> qui peut éventuellement altérer l'article : " LE " deviendra " DU ", " LES " 
+deviendra " DES ". Pour les communes sans article, la charnière dépend du son de la première syllabe :
+si c'est une voyelle ou un H muet, on utilise " D&apos; ", sinon on utilise " DE ".
+Par exemple : Commune de Lille, Commune d'Halluin. 
+<p>Enfin, un très petit nombre de communes dispose d'une indication complémentaire qui figure entre parenthèses
+après le nom de la commune. Exemple : Château-Chinon (campagne), Château-Chinon (ville)</p>
+</section>
+
+<section>
+<h1>Critères de recherche à mettre en œuvre dans l'interface utilisateur</h1>
+
+Vous proposerez plusieurs critères de recherche. à chacun correspondra un champ de saisie. Par défaut
+(si l'utilisateur n'utilise pas le champ), le critère est inutilisé.
+Les critères utilisés se combinent par conjonction (un « ET » : il faut que tous les critères soient
+vérifiés). Il n'est pas demandé d'implémenter la combinaison par un « OU ».
+<ul>
+<li>Recherche par nom. L'utilisateur peut entrer le nom avec ou sans accents (ou même en se trompant d'accent), avec le caractère œ
+ou avec les 2 caractères oe. Il peut mettre l'article ... ou pas.
+<p>Il vous est donc conseillé de toujours traduire ce que l'utilisateur a saisi en une chaîne ASCII 7 bits, en majuscules,
+sans article, qui pourra être recherchée dans la table des communes.</p>
+<p>On considèrera que si le champ de saisie est resté vide, le nom n'est pas un critère de recherche utilisé</p>
+</li>
+<li>Le code INSEE en 5 caractères. Là aussi un champ vide indique que le critère n'est pas utilisé.</li>
+<li>Le département : vous choisirez une forme de champ de saisie. Par défaut, le critère n'est pas utilisé</li>
+<li>La région. Mêmes remarques</li>
+<li>la population mini
+<li>la population maxi</li>
+</ul>
+</section>
+</body>
+</html>

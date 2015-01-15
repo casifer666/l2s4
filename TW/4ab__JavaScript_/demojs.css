@@ -1,0 +1,110 @@
+* {
+ font-family : "Lucida Sans","Luxi Sans","Arial",sans-serif;
+}
+body {
+  background-color : LightBlue;
+}
+#mainpage{
+  position : absolute;
+  width : 50%;
+  /*min-width : 780px;*/
+  top : 0; bottom : 0;
+  left : 3%;
+  padding : 3pt;
+  padding-left : 5pt; padding-right : 5pt;
+  padding-bottom : 150px;
+  background-color: white;
+  background-image : url(http://www.univ-lille1.fr/digitalAssets/3/3300_Footer.jpg);
+  background-position : left bottom;
+  background-repeat : no-repeat;
+}
+
+#dialogue{
+  position : fixed;
+  margin:0;
+  margin-right:1%;
+  width : 42%;
+  right : 3%;
+  bottom :0; top:0; right:0;
+  padding:0;
+}
+
+#messages{
+  padding : 3pt;
+  min-height : 50%;
+  max-height : 80%;
+  background-color : hsla(30,0%,85%,0.8);
+  overflow : scroll;
+  clear: left;
+}
+
+.bouton{
+ text-align:center;
+ font-size:10pt;
+ padding : 3pt;
+ color : white;
+ width:30%;
+ background-color : grey;
+ border-color : white; 
+ border-style : solid;
+ border-width: 1pt;
+ border-radius : 3pt 3pt 4pt 4pt;
+ border-bottom-width : 6pt;
+ margin-bottom : 2pt;
+ float : left;
+}
+
+.bouton + .bouton{
+ margin-left : 2pt;
+}
+
+.bouton:hover{
+ color : hsla(60,70%,50%,0.8);
+ border-bottom-color :  hsla(60,70%,50%,0.8);
+ cursor:pointer;
+ background-color: rgb(59, 118, 196);
+}
+
+.section h2{
+ margin-top:0;
+}
+
+
+.section{
+ margin-left:10%; margin-right:10%;
+ padding:3pt;
+ border : solid 1pt;
+ background-color: hsla(60,70%,50%,0.8);
+}
+
+.section+.section{
+margin-top:4pt;
+}
+
+.section.important {
+border-width : 3pt;
+border-color: darkred;
+}
+
+#section3 img {
+height:30mm;
+}
+
+#messages p {
+border-bottom: solid 1pt;
+margin-top:2pt;
+margin-bottom:0;
+background-color:hsla(0,0%,0%,0.08);
+}
+#messages p:nth-child(2n) {
+background-color:hsla(0,0%,0%,0.18);
+}
+
+#messages:before{
+ content : "messages";
+ text-transform : Capitalize;
+ background-color : hsla(30,10%,50%,0.8);
+ display:block;
+ text-align:center;
+ margin: -3pt; margin-bottom :0;
+}

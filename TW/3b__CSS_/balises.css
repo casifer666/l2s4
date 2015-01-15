@@ -1,0 +1,27 @@
+.info {
+display : none;
+}
+
+h2 {
+background-color : aquamarine;
+}
+
+h2::before {
+content : url(jabber_online.png) " ";
+}
+
+nav li {
+border-style : solid;
+float : left;
+background-color : Lightblue;
+width : 550px;
+list-style-type : none;
+border-radius : 5px;
+margin : 2px;
+padding : 5px;
+box-shadow : 5px 5px 5px grey;
+}
+
+#menu+* {
+clear : both;
+}

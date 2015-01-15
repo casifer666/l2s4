@@ -1,0 +1,14 @@
+DIAGNE Salla
+
+Pour lancer l'environnement wator, se placer à la racine du projet (dossier diagne) et taper par exemple la commande :
+	java -jar monwator.jar width height pt ps tgp sgp ssp
+avec :
+	width = largeur de la fenêtre
+	height = hauteur de la fenêtre
+	pt = pourcentage de thons au départ
+	ps = pourcentage de requins au départ
+	tgp = temps de gestation des thons
+	sgp = temps de gestation des requins
+	ssp = temps de vie des requins
+Exemple :
+	java -jar monwator.jar 50 50 35 35 2 5 3 10000

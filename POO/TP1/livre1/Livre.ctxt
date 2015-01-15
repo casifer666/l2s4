@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=auteur\ titre\ annee\ texte
+comment0.target=Livre(java.lang.String,\ java.lang.String,\ int,\ java.lang.String)
+comment0.text=\n\ Constructeur\ d'objets\ de\ la\ classe\ Livre\n\ @param\ auteur\ \=\ l'auteur\ du\ livre\n\ @param\ titre\ \=\ le\ titre\ du\ livre\n\ @param\ int\ \=\ l'annee\ de\ parution\ du\ livre\n\ @param\ texte\ \=\ le\ texte\ du\ livre\n
+comment1.params=
+comment1.target=java.lang.String\ getAuteur()
+comment1.text=\ donne\ l'\ <t>auteur</t>\ du\ livre\n\ @return\ l'<t>auteur</t>\ du\ livre\n
+comment2.params=
+comment2.target=java.lang.String\ getTitre()
+comment2.text=\ donne\ le\ <t>titre</t>\ du\ livre\n\ @return\ le\ <t>titre</t>\ du\ livre\n
+comment3.params=
+comment3.target=void\ affiche()
+comment3.text=\ affiche\ les\ informations\ sur\ le\ livre\n
+comment4.params=
+comment4.target=void\ lit()
+comment4.text=\ lit\ le\ livre\ (affiche\ le\ texte)\n
+numComments=5

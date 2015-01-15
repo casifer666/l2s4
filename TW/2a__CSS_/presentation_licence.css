@@ -1,0 +1,79 @@
+html, body { 
+ margin:0;
+background-color : rgb(217,198,163);
+}
+
+header, section {
+   padding-top:1px;
+   padding-bottom:1px;
+}
+
+header {
+background-color : rgb(141,166,129);
+text-align : center;
+}
+
+section {
+background-color : rgb(194,167,122);
+padding-left : 10pt;
+}
+
+h1 {
+background-color : rgb(145,55,32);
+opacity : 1;
+color : white;
+padding-top : 5pt;
+padding-bottom : 5pt;
+font-weight : 900;
+}
+
+header h1 {
+background-color : rgb(141,166,129);
+}
+
+
+header h2 {
+color : white;
+}
+
+section.ue > h1 {
+background-color : gray;
+}
+
+a:visited {
+color : white;
+}
+
+title head {
+color : white;
+}
+
+h2.q2
+{
+color : white;
+}
+
+h1.titre
+{
+background-color : rgb(167,144,101);
+}
+
+section abbr {
+background-color : rgb(167,144,101);
+margin : 1pt;
+padding : 1pt;
+padding-top : 0pt;
+}
+
+section#partie1 {
+margin-bottom : 16pt;
+padding-top : 0pt;
+}
+
+span.nom {
+color: cornsilk;
+}
+
+
+
+

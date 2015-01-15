@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Stock()
+comment0.text=\r\n\ constructeur\ pour\ les\ objets\ de\ la\ classe\ Stock\ avec\ une\ quantite\ initiallement\ nulle\r\n
+comment1.params=quantite
+comment1.target=Stock(int)
+comment1.text=\r\n\ constructeur\ pour\ les\ objets\ de\ la\ classe\ Stock\ avec\ une\ quantite\ passee\ en\ parametre\ lors\ de\ l'initialisation\r\n
+comment2.params=
+comment2.target=int\ getQuantite()
+comment2.text=\r\n\ consulte\ le\ stock\r\n\ @return\ la\ quantite\ en\ stock\r\n
+comment3.params=ajout
+comment3.target=void\ ajoute(int)
+comment3.text=\r\n\ augmente\ la\ quantite\ en\ stock\r\n\ @param\ la\ quantite\ a\ ajouter\ au\ stock\r\n
+comment4.params=retrait
+comment4.target=int\ retire(int)
+comment4.text=\r\n\ diminue\ la\ quantite\ en\ stock\r\n\ @param\ la\ quantite\ a\ retirer\ du\ stock\r\n\ @return\ la\ quantite\ retiree\ du\ stock\r\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ renvoie\ l'etat\ de\ la\ quantite\ en\ stock\r\n\ @return\ l'etat\ de\ la\ quantite\ en\ stock\r\n
+numComments=6

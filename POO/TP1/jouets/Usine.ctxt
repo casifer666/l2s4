@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Usine()
+comment1.params=marque
+comment1.target=Usine(java.lang.String)
+comment2.params=
+comment2.target=Jouet\ fabrique()
+comment2.text=\ fabrique\ un\ nouveau\ jouet\ de\ la\ marque\n\ @return\ le\ nouveau\ jouet\ fabrique\n
+numComments=3

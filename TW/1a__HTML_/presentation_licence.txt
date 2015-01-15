@@ -1,0 +1,91 @@
+Université de Lille 1
+Formations en informatique IEEA
+
+La licence mention Informatique, semestre 2.
+
+I - Présentation
+
+La seconde année de Licence est l'occasion de développer les connaissances informatiques introduites lors de la première année. Cette année pose les bases fondamentales qui seront développées dans la suite du cursus. 
+Au cours du troisième semestre un parcours particulier, appelé S3H, est proposé pour faciliter l'intégration d'étudiants rejoignant la licence en L2 sans avoir suivi l'un des cursus de L1 mentionné ci-dessus. 
+
+Calendrier du second semestre
+Les enseignements débutent le 14 janvier 2013 et se terminent le 10 mai.
+
+Unités du second semestre
+Automates et logiques (AEL)
+Algorithmes et structures de données (ASD)
+Programmation orientée objets (POO)
+Probabilité et statistique (Proba-Stats)
+Technologies du web (TW)
+Unité transversale : 
+    Anglais (Ang)
+    Technique d'expresion et de communication (CEO)
+    
+II - Description des unités
+
+Automates et Logiques
+Responsable
+Thomas Pietrzak
+Intervenants
+    Didier Maillet
+    Charles Bouillaguet
+    Yosra Rekik
+    Thomas Pietrzak 
+Volume horaire
+1h30 de cours et 1h30 de TD par semaine pendant 12 semaines, et 5 séances de 2h de TP
+Crédits
+5 ECTS
+
+Anglais
+Responsable
+Chantal Denorme
+Volume horaire
+L'enseignement est constitué de 24h de TD à raison de 2h hebdomadaires sous la forme de 40mn en labo de langue et 1h20 en salle.
+Crédits
+3 ECTS 
+
+Programmation Orientée Objet
+Responsable
+Jean-Christophe Routier
+Volume horaire
+Cette unité se déroule au S4 de la licence mention Informatique. Il s'agit d'une UE obligatoire de cette mention.
+L'enseignement est organisé sous la forme d'une séance de cours, d'une séance de TD et une séance de TP hebdomadaire, chacune durant 1h30.
+Cette UE constitue un pré-requis indispensable au suivi de l'UE COO du S5.
+Crédits
+5 ECTS
+
+
+Algorithmes et Structures de Données
+L'UE ASD fait suite aux UEs API2 et Math-Discrètes dont elle réutilise abondamment les notions abordées.
+Responsable
+Jean-Stéphane Varré, jean-stephane.varre [@] lifl [dot] fr
+Volume horaire et organisation
+L'UE est organisée en 1h30 de cours, 1h30 de TD et 1h30 de TDM par semaine durant 12 semaines.
+Les cours présentent les algorithmes et les structures de données abordées en discutant de l'intérêt que peuvent avoir chacun(e) de ces structures/algorithmes suivant les données que l'on a à traiter.
+Les TD sont l'occasion de bien cerner les outils présentés en cours et aussi le lieu de réflexion pour la résolution de problèmes.
+Les TP permettent d'aborder le problème de l'implantation effective de ces algorithmes et des structures.
+Crédits
+5 ECTS 
+
+Technologie du Web
+Ce module présente les principaux aspects des technologies Web :
+
+    La structuration des documents et leur mise en page (XHTML,CSS)
+    Le modèle objet de document (DOM) et son traitement en javascript/ECMAscript
+    La génération dynamique de contenu côté serveur illustrée par la pratique d'un langage de script (PHP)
+    Les bases de données relationnelles, leurs principes, leur mise en oeuvre et l'exploitation des données par un serveur Web
+
+Équipe pédagogique 2012-2013
+
+    Alexandre Bilger
+    Bruno Bogaert (responsable du module)
+    Benoît Cornu
+    Léopold Weinberg
+Volume horaire
+Volume horaire de présence : 48 heures se décomposant en 18 heures de cours et 36 heures de TD. Il est demandé de réaliser, hors créneaux encadrés, un projet de développement Web.
+Crédits
+5 ECTS
+
+FIL - Bât. M3 - Cité Scientifique 59655 Villeneuve d'Ascq Cedex Tél. +33 (0) 3.20.43.44.94  
+Mentions légales 
+Webmaster

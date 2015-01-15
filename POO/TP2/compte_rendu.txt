@@ -1,0 +1,21 @@
+TP2 POO
+
+Exercice 1 : Création dirigée de classe.
+
+Voir dossier Premier.
+
+Exercice 2 : Autre classe, moins dirigée
+
+Pour le constructeur qui ne permet que l'initialisation de l'attribut name, le paramètre est de type String. Pour celui qui permet l'initialisation des attributs value et name, les paramètres sont de type float et String.
+
+Exercice 3 : Des ampoules...
+
+Voir dossier Ampoule.
+
+Exercice 4 : ... et des interrupteurs
+
+Voir dossiers Interrupteur et InterrupteurMulti
+
+Exercice 5 : Complexe
+
+Voir dossier Complexe.

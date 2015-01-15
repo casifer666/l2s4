@@ -1,0 +1,63 @@
+/* HOSSAINY Said et DIAGNE Salla */
+
+html {	
+	border-width: 1px;
+	color : black;
+}
+
+body {
+	margin : 2%;
+}
+
+/* MAIN */
+
+#main {
+	box-shadow: 1px 1px 12px #555;
+	border-width: 1px;
+	background-image : url('images/loupe_details.png'),linear-gradient(Gainsboro, rgb(130,201,228));
+	background-repeat : no-repeat;
+	background-position: -8% 108%;
+}
+
+/* DETAILS */
+
+#details {
+	float : left;
+	width : 29%;
+	margin-left : 1%;
+}
+
+/* CARTE */
+
+#macarte {
+	height : 835px;
+	width : 70%;
+	min-width: 0px;
+}
+
+/* BOUTONS DE GESTION DE FAVORIS ET DE RETOUR */
+#retour {
+	padding: 3%;
+	margin-left: 48.58%;
+	width: 44%;
+	border: 1px solid;
+	cursor: pointer;
+	margin-top: 2%;
+	text-align: center;
+}
+
+#favoriser {
+	border: 1px solid;
+	float: left;
+	padding: 3%;
+	margin-top: 2%;
+	width: 42%;
+	cursor : pointer;
+	text-align: center;
+}
+
+#favoriser:hover,#retour:hover {
+	background-color: #82EBA9;
+}
+	
+

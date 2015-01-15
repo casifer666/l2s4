@@ -1,0 +1,86 @@
+Comment créer un projet (package exécutable)
+
+Dossiers du projet
+- src pour les sources
+- lib pour les librairies
+- test pour les fichiers de test
+- docs pour la documentation
+- classes pour les classes
+
+Paquetage
+package nomDuPackage; au début du code source de la classe
+import nomDuPackage.UneClasse; pour importer la classe UneClasse ou import nomDuPackage.*; pour importer toutes les classes du package
+
+Génération de la documentation
+Se placer dans le dossier src et faire
+javadoc *liste des paquetages* -d ../docs ou
+javadoc -d ../docs -subpackages nomDuPackage
+pour générer la documentation du paquetage nomDuPackage et de tous ses sous-paquetages
+Ouvrir le fichier index.html du répertoire docs pour accéder à la documentation du projet
+
+Test (avec JUnit)
+Créer un fichier nomDeClasseTestéeTest.java dans le dossier test :
+public nomDeClasseTestéeTest {
+...
+}
+- ajouter en entête
+import org.junit.*;
+import static org.junit.Assert.*;
+- ajouter dans le corps de la classe
+public static junit.framework.Test suite() {
+return new junit.framework.JUnit4TestAdapter(UneClasseTest.class);
+}
+- créer des méthodes de test
+Ces méthodes doivent être précédées de l'annotation @Test
+Signature : public void nomMethode()
+assertTrue(v) vérifie que v vaut true
+assertFalse(v) vérifie que v vaut false
+assertEquals(ref1, ref2) vérifie que ref1.equals(ref2) (vice versa)
+assertNull(ref) vérifie que ref vaut null
+assetNotNull(ref) vérifie que ref ne vaut pas null
+assertSame(ref1, ref2) vérifie que ref1 == ref2 (resp. ref2 == ref1)
+fail() échoue toujours
+
+Compilation et exécution du programme (méthode main du code source d'une classe)
+Se placer dans le répertoire src et faire
+javac nomDuDossier/UneClasse.java -d ../classes
+Se placer dans le répertoire classes et faire
+java nomDuPackage ou
+java package1.UneClasse pour exécuter le programme de la classe UneClasse contenue dans le paquetage package1
+Autre alternative : se placer à la racine du projet et faire
+java -classpath classes nomDuPackage
+
+Compilation et exécution des tests
+Compilation
+Se positionner à la racine du projet et faire :
+javac -classpath test.jar test/NomdeClasseTest.java
+Exécution
+Se positionner à la racine du projet et faire :
+java -jar test.jar NomDeClasseTest
+
+Gestion d'archives
+Création d'une archive appli.jar
+Se placer dans le répertoire classes et faire
+jar cvf ../appli.jar nomDuPackage
+Consultation
+Se placer à la racine du projet et faire
+jar tvf appli.jar
+Utilisation
+java -classpath appli.jar nomDuPackage
+Extraction
+jar xvf appli.jar
+Jar exécutable
+Ecrire dans un fichier nommé manifest la classe principale de l'archive
+Main-Class: nomDuPackage.ClassePrincipale
+Se placer dans le répertoire classes et faire
+jar cvfm ../appli.jar ../manifest nomDuPackage
+Se placer à la racine du projet et faire
+java -jar appli.jar pour l'exécution
+Ajouter des ressources
+Par exemple pour ajouter le fichier docs
+-C = changer de répertoire
+Se placer dans le répertoire classes et faire
+jar cvfm ../appli.jar ../manifest nomDuPackage -C .. docs -C .. test
+ou
+Se placer à la racine du projet et faire
+jar cvfm appli.jar manifest docs test -C classes nomDuPackage

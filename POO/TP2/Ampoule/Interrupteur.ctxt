@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=ampoule
+comment0.target=Interrupteur(Ampoule)
+comment0.text=\r\n\ constructeur\ pour\ les\ objets\ de\ la\ classe\ Interrupteur\r\n
+comment1.params=
+comment1.target=void\ appuiInterrupteur()
+comment1.text=\r\n\ appuie\ sur\ l'interrupteur\r\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment2.text=\r\n\ renvoie\ l'etat\ de\ l'ampoule\ controlee\ par\ l'interrupteur\r\n\ @return\ l'etat\ de\ l'ampoule\ controlee\ par\ l'interrupteur\r\n
+numComments=3

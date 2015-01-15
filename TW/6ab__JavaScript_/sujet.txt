@@ -1,0 +1,32 @@
+*********
+Objectif: 
+Créer un diaporama avec les images contenu dans le dossier "img"
+Le diaporama se lancera automatiquement au chargement de la page.
+De plus, il y a un bouton pour arrêter la lecture du diaporama, ainsi qu'un bouton affichant l'image suivante.
+
+*********
+Les images sont insérée dans le document sous forme de liste.
+Dans un premier temps, il faudra sauvegarder le chemin vers toutes les images dans un tableau.
+Pour cela, créer une variable globale de type tableau et le remplir dans le fonction "diaporama".
+
+*********
+Une fois le tableau rempli, on peut supprimer la liste car on ne veut pas l'afficher.
+À la place, on crée un élément image dans la section "contenu".
+Cet élément aura pour source la première image, dont le chemin est contenu dans le tableau que vous avez rempli.
+
+*********
+Pour lancer le diaporama, on va lancer la fonction "imageSuivante" toutes les secondes par exemple.
+Pour cela, utiliser la fonction setInterval.
+Il faudra ensuite coder la fonction "imageSuivante": un appel modifiera la source de l'image en fonction du tableau rempli.
+
+*********
+Associer un évenement click au lien "Play". 
+La fonction associée arrêtera le diaporama. On peut arrêter la fonction "setInterval" grâce à la fonction "clearInterval".
+
+*********
+Un deuxième click sur "Play" relancera le diaporama.
+De plus, il faut afficher "Pause" lorsque le diaporama est en lecture, et "Play" lorsque le diaporama est arrêter.
+
+*********
+En CSS, il n'est pas possible de centrer verticalement un élément.
+Utiliser la fonction setInterval pour centrer verticalement la section "contenu"

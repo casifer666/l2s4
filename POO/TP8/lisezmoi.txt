@@ -1,0 +1,9 @@
+Nom et Prénom : DIAGNE Salla
+
+Instruction : pour lancer le jeu de pierre-pierre-ciseaux, se placer à la racine du projet (dossier diagne) et exécuter la commande :
+					java -jar ppc.jar nomDuJoueur nombreDeTours
+
+Exemple : pour initialiser un jeu de ppc se jouant sur 3 tours avec un joueur nommé Timoleon, exécuter la commande
+				java -jar ppc.jar Timoleon 3
+
+Le joueur 2 est un joueur robot par défaut

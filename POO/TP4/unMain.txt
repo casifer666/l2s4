@@ -1,0 +1,23 @@
+    public static void main(String[] args) {
+
+	System.out.println("debut du main de robot.Robot");	
+
+	Robot robbie = new Robot();
+	TapisRoulant tapis1 = new TapisRoulant(50);
+	TapisRoulant tapis2 = new TapisRoulant(150);
+	Caisse caisse10 = new Caisse(10);
+	Caisse caisse15 = new Caisse(15);
+	Caisse caisse100 = new Caisse(100);
+	Caisse caisse60 = new Caisse(60);
+
+	robbie.prend(caisse10);
+	robbie.poseSur(tapis1);
+	robbie.prend(caisse15);
+	robbie.poseSur(tapis1);
+	robbie.prend(caisse100);
+	robbie.poseSur(tapis2);
+	
+	tapis1.affiche();
+
+	System.out.println("fin du main de robot.Robot");
+    }

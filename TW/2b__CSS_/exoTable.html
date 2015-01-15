@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+ <meta charset="utf-8" />
+ <link rel="stylesheet" href="exoTable.css" type="text/css" />
+ <title>CSS exoTable</title>
+</head>
+<body>
+  <h1>Mise en forme de table</h1> 
+  <table>
+    <caption>Une table</caption>
+    <colgroup id="grp1"></colgroup>
+    <colgroup id="grp2"></colgroup>
+    <thead>
+        <tr><td>A</td><td>B</td><td>C</td><td>D</td></tr>
+    </thead>
+    <tbody>
+      <tr class="lignedate">
+         <td><time datetine="19801231">31/12/1980</time></td>
+         <td><time datetime="19901231">31/12/1990</time></td>
+         <td><time datetime="20001231">31/12/2000</time></td>
+         <td><time datetime="20101231">31/12/2010</time></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="negatif">-6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+      <tr class="lignedate">
+        <td><time datetine="19800101">1/1/1980</time></td>
+        <td><time datetime="19900101">1/1/1990</time></td>
+        <td><time datetime="20000101">1/1/2000</time></td>
+        <td><time datetime="20100101">1/1/2010</time></td>
+      </tr>
+      <tr>
+         <td>9</td>
+         <td>10</td>
+         <td class="negatif">-11</td>
+         <td>12</td>
+       </tr>
+      <tr>
+        <td class="negatif">-13</td>
+        <td>14</td>
+        <td>15</td>
+        <td>16</td>
+      </tr>
+    <tr>
+        <td>-100</td>
+        <td colspan="2">140</td>
+        <td>160</td>
+      </tr>
+    </tbody>
+   </table>
+</body>
+</html>
+

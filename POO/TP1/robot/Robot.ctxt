@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Robot()
+comment0.text=\n\ constructeurs\ d'objets\ de\ la\ classe\ Robot\n
+comment1.params=caisse
+comment1.target=void\ prend(Caisse)
+comment1.text=\ le\ robot\ prend\ une\ caisse\ si\ il\ n'en\ tenait\ aucune\n\ @param\ caisse\ la\ caisse\ prise\n
+comment2.params=tapis
+comment2.target=void\ poseSur(TapisRoulant)
+comment2.text=\ le\ robot\ pose\ la\ caisse\ qu'il\ tient\ sur\ le\ tapis\ precise\n\ @param\ tapis\ le\ tapis\ sur\ lequel\ la\ caisse\ est\ deposee\n
+comment3.params=
+comment3.target=boolean\ porteCaisse()
+comment3.text=\ retourne\ <t>vrai</t>\ si\ le\ robot\ tient\ une\ caisse\n\ @return\ <t>vrai</t>\ si\ le\ robot\ tient\ une\ caisse\n
+numComments=4

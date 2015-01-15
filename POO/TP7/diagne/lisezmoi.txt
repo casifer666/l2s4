@@ -1,0 +1,3 @@
+Nom et prénom : DIAGNE Salla
+
+Instruction : se placer à la racine du projet (dossier diagne) et exécuter la commande : java -jar image.jar cheminCompletDeLimage seuil niveauDeGris (exemple de l'image lamp.pgm : pour afficher l'image initiale, celle obtenue par extraction des contours avec un seuil 10 et celle obtenue avec une diminution du niveau de gris de 8, exécuter la commande java -jar monimage.jar /images/lamp.pgm 10 8)

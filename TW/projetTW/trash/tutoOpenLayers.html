@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+ <meta charset="UTF-8" />
+ <title>Mini tuto Open Layers</title>
+   <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+   <script src="tutoOpenLayers.js"></script>
+   <link rel="stylesheet" type="text/css" href="tutoOpenLayers.css" />
+</head>
+<body>
+<h1>Premiers pas avec Open Layers</h1>
+<section>
+Ci-dessous nous développons pas à pas quelques exemples illustrant les principales fonctionnalités offertes par OpenLayers.
+
+Vous pouvez consulter <a href="tutoOpenLayers.js">ici</a> le code javascript complet de ces exemples.
+</section>
+<section id="bibliotheque" >
+   <h1>Inclure la bibliothèque OpenLayers</h1>
+   Pour utiliser la bibliothèque, il faut tout d'abord inclure le lien suivant :
+   <pre class="js">
+&lt;script src="http://www.openlayers.org/api/OpenLayers.js"&gt;&lt;/script&gt;</pre>
+   Sur le site du projet OpenLayers, vous trouverez 
+   <ul>
+   <li>
+    <a href="http://dev.openlayers.org/releases/OpenLayers-2.12/doc/apidocs/files/OpenLayers-js.html"> 
+    Une documentation détaillée de l'API	</a> 
+    </li>
+    <li>
+    <a href="http://trac.osgeo.org/openlayers/wiki/Documentation">Un espace de documentation utilisateur </a>
+    </li>
+</section>
+<section id="cartesimple" >
+<h1>1-2-3, une carte : 1 balise HTML,  2 propriétés CSS et 3 instructions JS</h1>
+
+ <h2>HTML</h2>
+  Il suffit de prévoir un élément vide (en général un élément <code>&lt;div&gt;</code>) dans lequel viendra s'afficher 
+  la carte. Il convient de lui attribuer	 un identifiant.
+    <pre class="html">
+&lt;div id="macarte"&gt;&lt;div&gt; </pre>
+<h2>CSS</h2>
+      On associe des règles CSS pour fixer ses dimensions, 
+      et éventuellement d'autres paramètres de style
+   <pre class="css">
+#macarte{
+ height : 400px;
+ width : 600px;
+} </pre>
+    <h2>Javascript</h2>
+    
+<p>Les instructions javascript ci-dessous sont à placer dans une fonction d'initialisation déclenchée
+au chargement de la page.</p>
+
+<p>C'est en javascript que l'on crée la carte elle-même, en fournissant l'identifiant
+de l'élément qui la contiendra :</p>
+<pre clas="js">var map = new OpenLayers.Map("macarte");</pre>
+<p>Pour l'instant, la carte ne contient aucun calque, elle est donc vide et nous allons la garnir. Tout d'abord
+en créant le calque principal : le fond de carte OpenStreetMap 
+(<abbr type-="OpenSreetMap">OSM</abbr> en abrégé). 
+OpenLayers possède une "classe" prédéfinie pour ce type de calques</p>
+<pre clas="js">map.addLayer(new OpenLayers.Layer.OSM());</pre>
+<p>La méthode <code>addLayer()</code> permet d'ajouter une couche quelconque.</p><p>
+Il reste à fixer un niveau de zoom initial. Dans cet exemple, nous choisissons un niveau de zoom permettant d'afficher
+l'étendue maximale <p>
+<pre clas="js">map.zoomToMaxExtent();</pre>
+<p>
+Vous constatez ci-dessous l'effet de ces 3  instructions : la carte est créée, l'utilisateur peut zoomer
+et faire glisser la carte.</p>
+<div id="carte1"></div>
+</section>
+<section id="Projections">
+<h1>Comprendre les coordonnées et les projections</h1>
+<h2>Latitude et Longitude : projection sphérique</h2>
+<img id="globe" src="http://upload.wikimedia.org/wikipedia/commons/d/d9/Geographic_coordinates_sphere.svg" alt="représentation graphique des coordonnées"/>
+<p>La position d'un point P à la surface du globe est le plus souvent définie par sa latitude et sa longitude
+exprimées en degrés. Nous n'utiliserons ici que la notation en "degrés décimaux" 
+(c'est à dire des nombres décimaux habituels et non en DMS (degrés/minutes/secondes)).</p>
+<ol>
+<li>La latitude représente l'angle formé par le centre de la terre, le point  P et l'équateur.
+Elle est donc comprise entre -90 (le pôle sud) et +90 (le pôle nord). Un point de latitude 0 se situe sur l'équateur.</li>
+<li>La longitude représente l'angle formé entre le méridien passant par le point  P et le méridien de Greenwich.
+Elle est  classiquement exprimée par une valeur comprise entre -180  et +180  
+(-180 et +180 représentent en fait la même longitude). 
+Les points de longitude positive sont situés à l'est du méridien de Greenwich, ceux de valeur négative à l'ouest. 
+</li>
+</ol>
+<p>Ce système de coordonnées correspond donc à la projection des points du globe sur une sphère. 
+Les systèmes d'information géographique ont attribué à cette projection un identifiant : <code>EPSG:4326</code>.
+Nous en aurons besoin plus loin.</p>
+<h2>Les cartes : projection sur un plan</h2>
+<p>Les cartes représentent la terre sur un plan et chaque carte est ainsi liée à une 
+projection rapportée à une surface plane </p><p>
+Différents types de projections existent : cylindriques (par exemple Mercator ...), coniques 
+(par exemple Lambert), etc... 
+Chaque projection
+ est associée à son propre système de coordonnées.</p>
+ <p>
+En résumé, une carte utilise donc  un système de coordonnées spécifique (défini par la projection)
+ à ne pas confondre avec le système sphérique "latitude et longitude".</p>
+<p>
+Il faut <strong>toujours</strong> penser à convertir latitude et longitude 
+en coordonnées appartenant au système de coordonnées de la carte. Heureusement la bibliothèque OpenLayers peut faire cela pour nous.</p>
+<h3>La classe Projection</h3>
+OpenLayers définit une classe Projection. Pour connaître la projection utilisée par une carte, 
+il suffit d'utiliser la méthode <code>getProjectionObject()</code>. On peut également fabriquer un objet
+Projection à partir de son identifiant <code>EPSG</code>. Voici comment 
+disposer des 2 projections : celle de la carte et la projection sphérique
+<pre clas="js">var projCarte = map.getProjectionObject();
+var projSpherique = new OpenLayers.Projection("EPSG:4326"); </pre>
+<p>Notez que l'on ne peut connaître la projection de la carte qu'après avoir défini la couche principale
+(ici la carte OSM). Il  faut donc utiliser <code>getProjectionObject()</code> <strong>après</strong> le premier <code>addLayer()</code>
+</p>
+<p>
+On peut maintenant convertir facilement des coordonnées, en précisant la projection
+d'origine et celle vers laquelle ont veut les convertir:</p>
+<pre clas="js">
+var coord = new OpenLayers.LonLat(2.87962,42.69608); // coordonnées en longitude/latitude
+coord.transform(projSpherique,projCarte);</pre>
+
+<p>Notez que l'objet <code>coord</code> a été transformé : il  contient maintenant 
+les coordonnées dans le système de la carte et non plus en longitude/latitude.</p>
+</section>
+<section id="centrer">
+<h1>Centrer et zoomer sur la carte</h1>
+
+<p>La méthode <code>setCenter(coordonnes, niveauZoom)</code> permet de centrer la carte 
+en un point et de fixer le niveau de zoom. Le niveau de zoom est un entier positif.
+Il ne faut jamais oublier que les coordonnées fournies en argument doivent être
+exprimées dans le système 
+de projection de la carte.
+</p>
+
+<pre clas="js">
+map.setCenter(coord,16);</pre>
+<h3>Exemple</h3>
+Les dernières instructions javascript que nous venons de voir, permettent de positionner
+la carte sur 
+<a href="http://www.grandsudinsolite.fr/18-66-pyrenees-orientales-deux-centres-du-monde-pour-le-prix-d-un-.html">
+le centre du Monde</a>
+<!--(c'est à dire la gare de Perpignan, selon Salvador Dali):-->
+<code>longitude= 2.87962 latitude=42.69608</code>
+<div id="carte2"></div>
+</section>
+
+<section>
+<h1>Ajouter des marqueurs</h1>
+<p>Les objets de la "classe"  <code>OpenLayers.Layer.Markers</code> sont des calques (ou couches) pouvant contenir un ou 
+plusieurs marqueurs, c'est à dire des points de repères visualisés sur la carte par des petites icônes, 
+ressemblant parfois à des punaises. Avant de créer ces marqueurs, il faut d'abord créer et ajouter un calque
+qui les contiendra :</p>
+<pre class="js">
+calqueMarkers = new OpenLayers.Layer.Markers("Repères");
+map.addLayer(calqueMarkers);</pre>
+<p>Le paramètre (ici "Repères") est un nom attribué au calque :
+ il pourra apparaître dans l'interface utilisateur, comme nous le verrons plus loin</p>
+ <p>Il ne reste plus qu'à créer le(s) marqueur(s) et l(es) ajouter au calque. Pour fabriquer un
+ marqueur, on fournit ses coordonnées, dans le système de coordonnées de la carte.</p>
+ <p>Voici comment créer un marqueur pour le point de l'exemple précédent :</p> 
+<pre class="js">var garePerpignan=new OpenLayers.Marker(coord);
+calqueMarkers.addMarker(garePerpignan);
+</pre>
+<div id="carte3"></div>
+
+<p>La <a href="http://dev.openlayers.org/releases/OpenLayers-2.12/doc/apidocs/files/OpenLayers/Marker-js.html">
+documentation de la classe <code>OpenLayers.Layer.Marker</code></a> vous indiquera comment modifier 
+les icônes et leurs apparences, si besoin est.</p>
+
+</section>
+ <section>
+ <h1>Des objets géométriques</h1>
+<p> Des classes permettent de construire des objets géométriques qui pourront ensuite
+être ajoutés à un calque. </p>
+Les points peuvent être créés à partir de leur coordonnées géographiques (longitude/latitude) 
+<pre class="js">
+var p1Geo = new OpenLayers.Geometry.Point(3.14159,51);
+var p2Geo = new OpenLayers.Geometry.Point(3.14159,50);
+</pre>
+<p>Mais pour être exploitables sur une carte, il faut les convertir vers le système de coordonnées de la carte :
+</p><pre class="js">
+var p1Carte = p1Geo.transform(projSpherique,projCarte);
+var p2Carte = p2Geo.transform(projSpherique,projCarte);
+</pre>
+<p>Notez que, cette fois, la méthode <code>transform</code> ne modifie pas le point auquel on l'applique, 
+mais fabrique un nouveau point</p>
+
+Une ligne peut être créée à partir d'un tableau de points. Voici l'exemple d'une segment de droite
+entre les 2 points p1 et p2
+<pre class="js">var meridienPI = new OpenLayers.Geometry.LineString([p1Carte,p2Carte]);</pre>
+<p>Note : il existe d'autres objets géométriques, comme les polygones, que vous pouvez découvrir dans la 
+documentation OpenLayers.</p>
+
+<p>Pour afficher cette ligne dans un calque, il faut d'abord passer par un objet intermédiaire
+de la classe <code>OpenLayers.Feature.Vector</code>. Voilà un exemple "minimal" :</p>
+<pre class="js">var featureLine = new OpenLayers.Feature.Vector(meridienPI,null,null);</pre>
+Mais on peut aussi utiliser les dernier argument pour passer des indications de style :
+<pre class="js">var featureLine = new OpenLayers.Feature.Vector(meridienPI,null,
+                               {strokeColor:"blue",strokeWidth:"2"});
+</pre>
+
+<p>Le calque contenant ces objets sera construit à partir de la classe 
+<code>OpenLayers.Layer.Vector</code></p>
+<pre class="js">var calqueDessins = new OpenLayers.Layer.Vector("Dessins");
+map.addLayer(calqueDessins);
+calqueDessins.addFeatures([featureLine]);
+</pre>
+<p> Le résultat est une carte présentant une portion du méridien de longitude PI qui
+traverse le campus de Lille1 en son centre :</p>
+<div id="carte4"></div>
+
+<p>La classe <code>OpenLayers.Feature.Vector</code> est aussi utile pour placer des labels sur 
+une carte. Par exemple : </p>
+<pre class="js">
+var featurePoint = new OpenLayers.Feature.Vector(
+        pointBU, null, {label:"BU",fontColor:"green"}
+     );
+ calqueDessins.addFeatures([featureLine,featurePoint]);</pre>
+ <div id="carte4bis"></div>
+ </section>
+ 
+<section id="controls">
+<h1>Ajout d'éléments interactifs</h1>
+<p>Il existe une quantité d'éléments interactifs que l'on peut ajouter à une carte.
+Il s'appellent des "Controls".Voici l'exemple du LayerSwitcher par lequel l'utilisateur peut
+masquer ou rendre visibles les différents calques</p>
+
+<pre class="">map.addControl(new OpenLayers.Control.LayerSwitcher({'ascending':false}));</pre>
+
+<div id="carte5"></div>
+<p>Le LayerSwitcher se présente sous la forme d'un "+" sur le bord droit de la carte.
+</section>
+
+   
+ <section>
+ <h1>Crédits</h1>
+ <ul>
+   <li>Le schéma des latitudes et longitudes provient de 
+   <a href="http://commons.wikimedia.org/wiki/File:Geographic_coordinates_sphere.svg">Wikimedia Commons</a>
+   <li> La cartographie est issue	 du projet open source et collaboratif <a href="http://openstreetmap.org/">OpenStreetMap</a></li>
+   <li> L'API javascript d'incrustation de cartes est <a href="http://openlayers.org">OpenLayers</a></li>
+
+ </ul>
+ </section>
+  
+</section>
+
+</html>

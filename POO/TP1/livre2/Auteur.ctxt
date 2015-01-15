@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=nom\ prenom\ naissance
+comment0.target=Auteur(java.lang.String,\ java.lang.String,\ int)
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Auteur\n
+comment1.params=
+comment1.target=void\ affiche()
+comment1.text=\ affiche\ les\ informations\ sur\ l'auteur\n
+comment2.params=deces
+comment2.target=void\ fixeDeces(int)
+comment2.text=\ met\ a\ jour\ la\ date\ de\ deces\n@param\ deces\ la\ date\ de\ deces\ de\ l'auteur\n
+numComments=3

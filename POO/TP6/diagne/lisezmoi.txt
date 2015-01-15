@@ -1,0 +1,4 @@
+Nom et prénom : DIAGNE Salla
+
+Instruction : lancer le jeu de la bataille navale en se plaçant à la racine du projet (dossier diagne) et en tapant dans un terminal la commande : java -jar naval.jar
+À noter que la partie ne se termine pas quand tous les bateaux sont touchés
